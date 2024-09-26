@@ -20,8 +20,6 @@ export default function App() {
 			const apiData = JSON.parse(localStorage.getItem(localKey));
 			setData(apiData);
 			setLoading(false);
-			console.log(`fetch from cache`);
-			console.log(apiData);
 			return;
 		}
 		localStorage.clear();
@@ -30,7 +28,6 @@ export default function App() {
 			const res = await fetch(url);
 			const apiData = await res.json();
 			localStorage.setItem(localKey, JSON.stringify(apiData));
-			console.log(`fetch from API`);
 
 			setData(apiData);
 			setLoading(false);
